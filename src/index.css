@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/*
+  Font stand-ins:
+  The brand guide specifies "Blue Winter" for the logo/headings and
+  "Futura Medium" / "Avenir Book" for body text. Those are licensed fonts
+  we don't have access to in this build, so Fredoka (playful, rounded,
+  close in spirit to Blue Winter) and Quicksand (clean geometric sans,
+  close in spirit to Futura/Avenir) are used as free stand-ins.
+  Swap the font-family values below once the licensed fonts are available.
+*/
+@theme {
+  --font-heading: "Fredoka", "Baloo 2", ui-rounded, sans-serif;
+  --font-body: "Quicksand", "Avenir", ui-sans-serif, sans-serif;
+
+  /* Brand palette, sampled from the Josun English graphic assets sheet.
+     These are best-guess hex values read off the color swatches — swap
+     in exact brand hex codes once the owner shares the style guide values. */
+  --color-josun-pink: #f4a3b8;
+  --color-josun-red: #e15241;
+  --color-josun-orange: #f2984b;
+  --color-josun-yellow: #f5c242;
+  --color-josun-green: #4fae64;
+  --color-josun-teal: #6fc7a4;
+  --color-josun-sky: #7fb8e0;
+  --color-josun-blue: #5a87c9;
+  --color-josun-indigo: #6c7fc4;
+  --color-josun-cream: #fdf8ee;
+  --color-josun-ink: #33302a;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-josun-cream);
+  color: var(--color-josun-ink);
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes ticker {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  animation: ticker 28s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
