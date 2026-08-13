@@ -59,3 +59,44 @@ html {
 .animate-ticker:hover {
   animation-play-state: paused;
 }
+
+/* Used by the Carousel component to keep the snap-scroll track's native
+   scrollbar hidden without hiding scrollbars site-wide. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* One-time confetti burst used by the Fireworks component behind the
+   Hero heading. Particles start invisible (opacity 0) so anyone with
+   prefers-reduced-motion set just sees nothing, rather than a static
+   scatter of dots frozen mid-animation. The animation itself only runs
+   for visitors who haven't asked for reduced motion. */
+.firework-particle {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .firework-particle {
+    animation: firework-pop 1.1s ease-out forwards;
+  }
+}
+
+@keyframes firework-pop {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 0;
+  }
+  15% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0.3);
+    opacity: 0;
+  }
+}

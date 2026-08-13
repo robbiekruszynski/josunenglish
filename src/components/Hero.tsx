@@ -1,3 +1,4 @@
+import { Fireworks } from './Fireworks';
 import { Logo } from './Logo';
 
 export function Hero() {
@@ -10,10 +11,19 @@ export function Hero() {
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 text-center">
         <Logo className="h-16 md:h-20" />
 
-        <h1 className="font-heading text-4xl leading-tight font-semibold text-josun-blue md:text-6xl">
-          We'd love to meet
-          <br className="hidden md:block" /> your little learner.
-        </h1>
+        <div className="relative">
+          {/* One-time welcome burst, plays on load, sits behind the
+              heading only (not the whole hero) so it reads as a little
+              celebration around the words rather than page-wide noise. */}
+          <div className="absolute -inset-x-16 -inset-y-16 -z-10 md:-inset-x-24 md:-inset-y-20">
+            <Fireworks />
+          </div>
+
+          <h1 className="font-heading text-4xl leading-tight font-semibold text-josun-blue md:text-6xl">
+            We'd love to meet
+            <br className="hidden md:block" /> your little learner.
+          </h1>
+        </div>
 
         <p className="max-w-xl text-lg text-josun-ink/80">
           Josun English is a phonics and language learning studio for young

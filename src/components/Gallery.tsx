@@ -1,35 +1,36 @@
 import { GALLERY_IMAGES } from '../data/siteContent';
+import { Carousel } from './Carousel';
 import { SectionHeading } from './SectionHeading';
 
 /**
  * Photo gallery, sourced from the curated GALLERY_IMAGES list in
  * siteContent.ts (a hand-picked subset of public/assets/students, not
- * the full folder). Uses a CSS column layout so photos of different
- * aspect ratios sit together naturally instead of getting cropped into
- * a rigid grid.
+ * the full folder). Rendered as a Carousel (see components/Carousel.tsx),
+ * which is generic — this file's only job is turning image data into
+ * slides.
  */
 export function Gallery() {
   return (
-    <section id="gallery" className="bg-josun-blue/5 px-6 py-20">
-      <div className="mx-auto max-w-6xl">
+    <section id="gallery" className="bg-josun-blue/5 py-20">
+      <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Gallery"
           title="A peek inside class"
           description="Real moments from real students, working, writing, and having fun doing it."
         />
-
-        <div className="columns-2 gap-4 md:columns-3 lg:columns-4">
-          {GALLERY_IMAGES.map((image) => (
-            <img
-              key={image.src}
-              src={image.src}
-              alt={image.alt}
-              loading="lazy"
-              className="mb-4 w-full rounded-2xl object-cover shadow-sm transition hover:brightness-95"
-            />
-          ))}
-        </div>
       </div>
+
+      <Carousel ariaLabel="Photos from Josun English classes">
+        {GALLERY_IMAGES.map((image) => (
+          <img
+            key={image.src}
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            className="aspect-[4/5] w-full rounded-3xl object-cover shadow-md"
+          />
+        ))}
+      </Carousel>
     </section>
   );
 }
