@@ -80,9 +80,14 @@ html {
   opacity: 0;
 }
 
+/* Loops for as long as the Fireworks component keeps it mounted (i.e.
+   while the hero fold is on screen — see the IntersectionObserver in
+   Fireworks.tsx). No "forwards" here on purpose: forwards only matters
+   once an animation finishes, and with an infinite iteration count it
+   never does, it just keeps cycling. */
 @media (prefers-reduced-motion: no-preference) {
   .firework-particle {
-    animation: firework-pop 1.1s ease-out forwards;
+    animation: firework-pop 1.1s ease-out infinite;
   }
 }
 

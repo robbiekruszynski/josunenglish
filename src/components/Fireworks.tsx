@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import { useEffect, useRef, useState, type CSSProperties } from 'react';
 
 const COLORS = [
   'var(--color-josun-pink)',
@@ -22,10 +22,17 @@ const BURSTS = [
 const PARTICLES_PER_BURST = 10;
 
 /**
- * A one-time confetti-burst welcome that plays once on page load, sitting
- * behind the hero heading. Pure CSS keyframe animation (no canvas, no
- * animation library), matching the project's dependency-free approach to
- * decorative motion elsewhere (e.g. the ticker marquee).
+ * A confetti-burst welcome that lives behind the hero heading, pure CSS
+ * keyframe animation (no canvas, no animation library), matching the
+ * project's dependency-free approach to decorative motion elsewhere
+ * (e.g. the ticker marquee).
+ *
+ * Tied to the hero fold's visibility via IntersectionObserver: it cycles
+ * continuously while the fold is on screen, stops (unmounts, not just
+ * pauses) as soon as you scroll past it, and plays fresh from the start
+ * again if you scroll back up. The particles themselves are only mounted
+ * while `visible` is true, so nothing animates, and nothing costs CPU,
+ * off screen.
  *
  * Respects prefers-reduced-motion: the burst animation itself only exists
  * inside a `@media (prefers-reduced-motion: no-preference)` block in
@@ -33,36 +40,56 @@ const PARTICLES_PER_BURST = 10;
  * fireworks rather than a jarring burst forced on them.
  */
 export function Fireworks() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.2 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div
+      ref={containerRef}
       className="pointer-events-none absolute inset-0 overflow-hidden"
       aria-hidden="true"
     >
-      {BURSTS.map((burst, burstIndex) => (
-        <div key={burstIndex} className="absolute" style={{ top: burst.top, left: burst.left }}>
-          {Array.from({ length: PARTICLES_PER_BURST }).map((_, i) => {
-            const angle = (360 / PARTICLES_PER_BURST) * i;
-            const radians = (angle * Math.PI) / 180;
-            const tx = Math.cos(radians) * burst.radius;
-            const ty = Math.sin(radians) * burst.radius;
+      {/* Only rendered while the fold is in view, so re-entering the
+          viewport always starts a brand new animation from frame zero
+          instead of resuming a paused one mid-burst. */}
+      {visible &&
+        BURSTS.map((burst, burstIndex) => (
+          <div key={burstIndex} className="absolute" style={{ top: burst.top, left: burst.left }}>
+            {Array.from({ length: PARTICLES_PER_BURST }).map((_, i) => {
+              const angle = (360 / PARTICLES_PER_BURST) * i;
+              const radians = (angle * Math.PI) / 180;
+              const tx = Math.cos(radians) * burst.radius;
+              const ty = Math.sin(radians) * burst.radius;
 
-            return (
-              <span
-                key={i}
-                className="firework-particle absolute h-2 w-2 rounded-full"
-                style={
-                  {
-                    backgroundColor: COLORS[(burstIndex + i) % COLORS.length],
-                    animationDelay: `${burst.delay}s`,
-                    '--tx': `${tx}px`,
-                    '--ty': `${ty}px`,
-                  } as CSSProperties
-                }
-              />
-            );
-          })}
-        </div>
-      ))}
+              return (
+                <span
+                  key={i}
+                  className="firework-particle absolute h-2 w-2 rounded-full"
+                  style={
+                    {
+                      backgroundColor: COLORS[(burstIndex + i) % COLORS.length],
+                      animationDelay: `${burst.delay}s`,
+                      '--tx': `${tx}px`,
+                      '--ty': `${ty}px`,
+                    } as CSSProperties
+                  }
+                />
+              );
+            })}
+          </div>
+        ))}
     </div>
   );
 }

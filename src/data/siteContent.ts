@@ -321,8 +321,14 @@ export const CONTACT_INFO = {
   whatsapp: '6114-8185',
   whatsappHref: 'https://wa.me/85261148185',
   instagram: '@josunenglish.hk',
-  instagramHref: 'https://instagram.com/josunenglish.hk',
+  instagramHref: 'https://www.instagram.com/josunenglish.hk/',
   // Owner note: josunenglish.org is available and she's okay with it as
   // the eventual site domain — surfaced here, not wired to anything yet.
   domainNote: 'josunenglish.org',
 };
+
+// Links out to the studio's actual Google review page, no review text is
+// pulled in here (that would mean putting words in real reviewers'
+// mouths without being able to verify or update them), this just sends
+// visitors to go read (or leave) real reviews on Google directly.
+export const GOOGLE_REVIEWS_HREF = 'https://share.google/Gdbk8O4qIq0Bym4uL';
