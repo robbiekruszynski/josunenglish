@@ -1,32 +1,66 @@
-# React + TypeScript + Vite
+<p align="center">
+  <img src="public/assets/graphics/Josun_logo.png" alt="Josun English" width="280" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+<p align="center">
+  Phonics and language learning for young readers and writers in Hong Kong.
+</p>
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+This is the marketing site for Josun English, a single vertical-scrolling
+page covering About, Classes, Team, Gallery, Testimonials, Shop, Work
+With Us, and Contact. Built with React, TypeScript, Vite, and Tailwind
+CSS.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The site follows Josun's brand sheet: the sun mascot and wordmark, the
+warm color palette (coral, orange, yellow, green, teal, sky, blue,
+indigo), and playful rounded typography. See `src/index.css` for the
+font and color setup, and a note on the licensed fonts ("Blue Winter,"
+Futura, Avenir) this build stands in for until they're available.
 
-## Expanding the Oxlint configuration
+## Getting Started
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+This starts a local dev server (usually `http://localhost:5173`) that
+reloads automatically as you edit files.
+
+```bash
+npm run build    # production build, output in dist/
+npm run lint     # check code style
+```
+
+## Project Structure
+
+```
+src/
+  components/   one file per section (Hero, About, Classes, Team, ...)
+  data/         siteContent.ts — all site copy lives here, not in components
+  types/        shared TypeScript types
+  utils/        colors.ts — Tailwind class lookup for the brand palette
+public/
+  assets/
+    graphics/       logo and brand assets
+    students/       photo library (curated selection used in the Gallery)
+    environmental-shots/   reserved for future site photography
+    students-work/         reserved for future student work photography
+```
+
+## Editing Content
+
+Almost everything on the site (class descriptions, team members, ticker
+messages, testimonials, contact info, the Gallery photo selection) lives
+in `src/data/siteContent.ts`. Edit values there rather than in the
+component files, the components just render whatever's in that file.
+
+## Deploying
+
+The project builds to a static `dist/` folder, so it works with any
+static host (Netlify, Vercel, etc.). Build command: `npm run build`.
+Publish directory: `dist`.
