@@ -1,7 +1,15 @@
+import { Fireworks } from './Fireworks';
+
 /**
- * A real handwritten thank-you note from a student, placed right under
- * the Testimonials spotlight as a quieter, more personal counterpart to
- * the quote carousel above it.
+ * A real handwritten thank-you note from a student, placed right after
+ * Team as "show, don't tell" proof of the close teacher relationships
+ * that section describes.
+ *
+ * Reuses the same Fireworks component from the Hero (rather than a
+ * one-off effect) so the card doesn't sit alone on an otherwise plain
+ * stretch of the page, it also means the confetti only plays while this
+ * bit of the page is actually in view (see the IntersectionObserver in
+ * Fireworks.tsx), same as the Hero.
  *
  * Two things were redacted out of the original photo before it went
  * anywhere near this site: the student's personal phone number (written
@@ -13,8 +21,12 @@
  */
 export function StudentLetter() {
   return (
-    <section className="px-6 pb-20">
-      <div className="mx-auto max-w-xl">
+    <section className="px-6 py-20">
+      <div className="relative mx-auto max-w-xl">
+        <div className="pointer-events-none absolute -inset-x-10 -inset-y-14 -z-10 sm:-inset-x-16 sm:-inset-y-20">
+          <Fireworks />
+        </div>
+
         <figure className="rotate-1 rounded-2xl bg-white p-3 shadow-xl transition hover:rotate-0">
           <img
             src="/assets/testimonials/student-letter.jpg"

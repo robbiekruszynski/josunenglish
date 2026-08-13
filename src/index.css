@@ -100,6 +100,13 @@ html {
     transform: translate(0, 0) scale(1);
     opacity: 1;
   }
+  /* Holds near full brightness through the middle of the arc instead of
+     fading immediately after the pop, so more particles read as
+     visibly "lit" at any given moment rather than most of them being
+     already mid-fade. */
+  45% {
+    opacity: 0.95;
+  }
   100% {
     transform: translate(var(--tx), var(--ty)) scale(0.3);
     opacity: 0;

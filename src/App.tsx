@@ -27,9 +27,9 @@ function App() {
         <About />
         <Classes />
         <Team />
+        <StudentLetter />
         <Gallery />
         <Testimonials />
-        <StudentLetter />
         <GoogleReviews />
         <Shop />
         <WorkWithUs />

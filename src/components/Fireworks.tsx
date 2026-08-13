@@ -10,16 +10,23 @@ const COLORS = [
 ];
 
 // Each burst: where it sits (as % of the container), how far its
-// particles travel, and how long after mount it pops. Staggered delays
-// give a "pop, pop, pop" feel instead of everything firing at once.
+// particles travel, and how long after mount it pops. Delays are spread
+// across less than one full 1.1s animation cycle (see index.css) and
+// kept close together on purpose, so several bursts are near their
+// "pop" peak at the same moment instead of only ever one or two being
+// visible while the rest are mid-fade.
 const BURSTS = [
-  { top: '18%', left: '20%', radius: 70, delay: 0 },
-  { top: '12%', left: '78%', radius: 60, delay: 0.25 },
-  { top: '55%', left: '88%', radius: 55, delay: 0.5 },
-  { top: '62%', left: '10%', radius: 65, delay: 0.7 },
+  { top: '15%', left: '12%', radius: 85, delay: 0 },
+  { top: '10%', left: '50%', radius: 75, delay: 0.15 },
+  { top: '18%', left: '85%', radius: 90, delay: 0.3 },
+  { top: '48%', left: '92%', radius: 70, delay: 0.45 },
+  { top: '60%', left: '55%', radius: 80, delay: 0.55 },
+  { top: '52%', left: '5%', radius: 75, delay: 0.7 },
+  { top: '30%', left: '30%', radius: 65, delay: 0.85 },
+  { top: '35%', left: '68%', radius: 70, delay: 0.95 },
 ];
 
-const PARTICLES_PER_BURST = 10;
+const PARTICLES_PER_BURST = 14;
 
 /**
  * A confetti-burst welcome that lives behind the hero heading, pure CSS
@@ -76,7 +83,7 @@ export function Fireworks() {
               return (
                 <span
                   key={i}
-                  className="firework-particle absolute h-2 w-2 rounded-full"
+                  className="firework-particle absolute h-3 w-3 rounded-full"
                   style={
                     {
                       backgroundColor: COLORS[(burstIndex + i) % COLORS.length],
