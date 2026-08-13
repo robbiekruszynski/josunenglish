@@ -4,9 +4,13 @@ import { Logo } from './Logo';
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden px-6 py-20 md:py-28">
-      {/* Soft decorative shapes, echoing the rainbow/sun pattern sheet */}
-      <div className="pointer-events-none absolute -top-10 -right-16 h-56 w-56 rounded-full bg-josun-yellow/30" />
-      <div className="pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
+      {/* Soft decorative shapes, echoing the rainbow/sun pattern sheet.
+          A slow, subtle drift (see .hero-blob-a/b in index.css) makes
+          the hero feel like it's breathing instead of sitting static,
+          each shape moves on its own duration so they never sync up
+          into an obviously repeating loop. */}
+      <div className="hero-blob-a pointer-events-none absolute -top-10 -right-16 h-56 w-56 rounded-full bg-josun-yellow/30" />
+      <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 text-center">
         <Logo className="h-16 md:h-20" />

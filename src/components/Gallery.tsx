@@ -21,15 +21,22 @@ export function Gallery() {
       </div>
 
       <Carousel ariaLabel="Photos from Josun English classes">
-        {GALLERY_IMAGES.map((image) => (
-          <img
-            key={image.src}
-            src={image.src}
-            alt={image.alt}
-            loading="lazy"
-            className="aspect-[4/5] w-full rounded-3xl object-cover shadow-md"
-          />
-        ))}
+        {GALLERY_IMAGES.map((image, index) => {
+          // Alternating resting tilt, straightened on hover, so each
+          // photo feels like it's being picked up off a scattered pile
+          // rather than sitting flat in a grid.
+          const tilt = index % 2 === 0 ? '-rotate-2' : 'rotate-2';
+
+          return (
+            <img
+              key={image.src}
+              src={image.src}
+              alt={image.alt}
+              loading="lazy"
+              className={`aspect-[4/5] w-full rounded-3xl object-cover shadow-md transition duration-300 ease-out hover:z-10 hover:-translate-y-1 hover:rotate-0 hover:scale-105 hover:shadow-2xl ${tilt}`}
+            />
+          );
+        })}
       </Carousel>
     </section>
   );

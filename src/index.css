@@ -112,3 +112,39 @@ html {
     opacity: 0;
   }
 }
+
+/* Slow drift for the Hero's two background blobs, kept in a separate
+   media query (rather than sharing one with the fireworks) so it's
+   independently easy to find. Different durations and directions per
+   shape so they never sync into an obviously repeating loop, and no
+   fixed end state to worry about since neither has a "forwards" case,
+   they just loop. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-blob-a {
+    animation: hero-drift-a 16s ease-in-out infinite;
+  }
+
+  .hero-blob-b {
+    animation: hero-drift-b 20s ease-in-out infinite;
+  }
+}
+
+@keyframes hero-drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(18px, -14px) scale(1.08);
+  }
+}
+
+@keyframes hero-drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-16px, 16px) scale(0.94);
+  }
+}

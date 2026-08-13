@@ -16,14 +16,22 @@ const COLORS = [
 // "pop" peak at the same moment instead of only ever one or two being
 // visible while the rest are mid-fade.
 const BURSTS = [
-  { top: '15%', left: '12%', radius: 85, delay: 0 },
   { top: '10%', left: '50%', radius: 75, delay: 0.15 },
+  { top: '15%', left: '12%', radius: 85, delay: 0 },
   { top: '18%', left: '85%', radius: 90, delay: 0.3 },
-  { top: '48%', left: '92%', radius: 70, delay: 0.45 },
-  { top: '60%', left: '55%', radius: 80, delay: 0.55 },
-  { top: '52%', left: '5%', radius: 75, delay: 0.7 },
   { top: '30%', left: '30%', radius: 65, delay: 0.85 },
   { top: '35%', left: '68%', radius: 70, delay: 0.95 },
+  { top: '48%', left: '92%', radius: 70, delay: 0.45 },
+  { top: '52%', left: '5%', radius: 75, delay: 0.7 },
+  { top: '60%', left: '55%', radius: 80, delay: 0.55 },
+  // Lower half, previously empty — this is the area that reads as
+  // "bare" on cards where the fireworks wrapper extends well below the
+  // content (e.g. the student letter card).
+  { top: '70%', left: '20%', radius: 75, delay: 0.1 },
+  { top: '75%', left: '78%', radius: 70, delay: 0.4 },
+  { top: '85%', left: '45%', radius: 85, delay: 0.65 },
+  { top: '90%', left: '8%', radius: 65, delay: 0.9 },
+  { top: '92%', left: '90%', radius: 70, delay: 0.2 },
 ];
 
 const PARTICLES_PER_BURST = 14;
