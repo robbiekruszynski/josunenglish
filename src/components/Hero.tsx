@@ -10,8 +10,12 @@ export function Hero() {
           the sticky Header (z-50), so it needs a higher z-index or the
           header's background paints over it and clips the top of the
           sun. Safe to sit above the header since AnimatedSun is
-          pointer-events-none, it can't block clicks on the nav. */}
-      <AnimatedSun className="hero-sun absolute -top-12 -right-[5.5rem] z-[60] h-[18.2rem] w-[18.2rem]" />
+          pointer-events-none, it can't block clicks on the nav.
+          Noticeably smaller and tucked into the actual corner on
+          mobile, at the full desktop size (18.2rem, bled off the
+          section edge) it was large enough to overlap the centered
+          Logo/heading column on narrow screens. */}
+      <AnimatedSun className="hero-sun absolute top-0 right-0 z-[60] h-16 w-16 sm:h-24 sm:w-24 md:-top-12 md:-right-[5.5rem] md:h-[18.2rem] md:w-[18.2rem]" />
 
       <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
 
