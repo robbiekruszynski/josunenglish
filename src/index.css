@@ -165,20 +165,19 @@ html {
   }
 }
 
-/* Hero sun: staggered glow on each ray while the group orbits via SVG
-   animateTransform (see AnimatedSun.tsx). */
+/* Hero sun: official Josun favicon mark — slow spin on the logo,
+   gentle drift on the wrapper. */
 @media (prefers-reduced-motion: no-preference) {
-  .animated-sun-ray {
-    animation: sun-ray-glow 4s ease-in-out infinite;
+  .animated-sun-logo {
+    animation: sun-logo-spin 140s linear infinite;
   }
 }
 
-@keyframes sun-ray-glow {
-  0%,
-  100% {
-    opacity: 0.55;
+@keyframes sun-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-  50% {
-    opacity: 1;
+  to {
+    transform: rotate(360deg);
   }
 }

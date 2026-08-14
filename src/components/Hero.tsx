@@ -5,8 +5,8 @@ import { Logo } from './Logo';
 export function Hero() {
   return (
     <section id="top" className="relative overflow-visible px-6 py-20 md:py-28">
-      {/* Friendly sun in the top-right — same size/position as the old blob. */}
-      <AnimatedSun className="hero-sun pointer-events-none absolute -top-10 -right-16 h-64 w-64" />
+      {/* Josun sun mascot (official favicon mark) in the top-right. */}
+      <AnimatedSun className="hero-sun absolute -top-12 -right-[5.5rem] h-[18.2rem] w-[18.2rem]" />
 
       <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
 
