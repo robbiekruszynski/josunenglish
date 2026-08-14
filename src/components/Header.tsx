@@ -9,16 +9,25 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-josun-cream/95 backdrop-blur">
       <Ticker />
-      <div className="mx-auto flex max-w-6xl items-center justify-between py-4 pr-6 pl-1 md:pl-2">
-        <div className="flex items-center gap-5 md:gap-8">
-          {/* Pushed nearly flush to the left edge on purpose (minimal
-              left padding vs. the right side); sized at 1.5x the
-              original 40px/44px (h-10/h-11) since the round mark read
-              small at its old size next to the rest of the nav. */}
-          <a href="#top" className="shrink-0">
-            <Logo variant="round" className="h-[60px] md:h-[66px]" />
-          </a>
+      <div className="relative min-h-[68px] py-4">
+        {/* Pinned to the true left edge of the viewport, independent of
+            the centered max-w-6xl content column below. With the logo
+            inside that column, it could only ever get as far left as
+            the column's own edge, which on wide monitors is well short
+            of the actual browser edge (large empty margins on either
+            side). Taking it out of that column and anchoring it to the
+            full-width header directly is what gets it genuinely flush
+            to the viewport regardless of screen width. Sized at 1.5x
+            the original 40px/44px (h-10/h-11) since the round mark read
+            small at its old size. */}
+        <a
+          href="#top"
+          className="absolute top-1/2 left-2 -translate-y-1/2 md:left-4"
+        >
+          <Logo variant="round" className="h-[60px] md:h-[66px]" />
+        </a>
 
+        <div className="mx-auto flex max-w-6xl items-center justify-end px-6">
           <nav className="hidden items-center gap-7 md:flex">
             {NAV_LINKS.map((link) => (
               <a
@@ -36,19 +45,19 @@ export function Header() {
               Book an Assessment
             </a>
           </nav>
-        </div>
 
-        <button
-          type="button"
-          className="flex flex-col gap-1.5 md:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className="h-0.5 w-6 bg-josun-ink" />
-          <span className="h-0.5 w-6 bg-josun-ink" />
-          <span className="h-0.5 w-6 bg-josun-ink" />
-        </button>
+          <button
+            type="button"
+            className="flex flex-col gap-1.5 md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className="h-0.5 w-6 bg-josun-ink" />
+            <span className="h-0.5 w-6 bg-josun-ink" />
+            <span className="h-0.5 w-6 bg-josun-ink" />
+          </button>
+        </div>
       </div>
 
       {menuOpen && (

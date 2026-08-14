@@ -15,7 +15,7 @@ export function Shop() {
         <SectionHeading
           eyebrow="Coming Soon"
           title="Shop"
-          description="A small shelf of things we love, workbooks, story books, and stationery, launching soon."
+          description="A small shelf of things we love! Workbooks, story books, and stationery, launching soon."
         />
 
         <div className="grid gap-6 md:grid-cols-3">

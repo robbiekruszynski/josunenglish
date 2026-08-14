@@ -1,4 +1,5 @@
 import { About } from './components/About';
+import { Bookshelf } from './components/Bookshelf';
 import { Classes } from './components/Classes';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -32,6 +33,7 @@ function App() {
         <Testimonials />
         <GoogleReviews />
         <Shop />
+        <Bookshelf />
         <WorkWithUs />
         <Contact />
       </main>

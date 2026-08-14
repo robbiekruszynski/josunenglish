@@ -113,6 +113,33 @@ html {
   }
 }
 
+/* One-time "pop out of the shelf" entrance for the Bookshelf carousel
+   cards. Visible immediately (opacity: 1) by default so
+   prefers-reduced-motion users just see the books, no animation, no
+   flash of invisible content, the animated version only applies inside
+   the no-preference media query below. */
+.book-pop-in {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .book-pop-in {
+    opacity: 0;
+    animation: book-pop 420ms ease-out forwards;
+  }
+}
+
+@keyframes book-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.92) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
 /* Slow drift for the Hero's two background blobs, kept in a separate
    media query (rather than sharing one with the fireworks) so it's
    independently easy to find. Different durations and directions per
