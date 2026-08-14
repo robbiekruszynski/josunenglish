@@ -52,7 +52,7 @@ export function Contact() {
   return (
     <section id="contact" className="px-6 py-20">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
-        <div>
+        <div className="relative">
           <SectionHeading
             align="left"
             eyebrow="Contact"
@@ -80,6 +80,17 @@ export function Contact() {
               {CONTACT_INFO.instagram}
             </a>
           </div>
+
+          {/* Decorative pattern-sheet flower filling the dead space
+              between the contact links and the form, right side of this
+              column, hidden below md since there isn't room to spare
+              once the form drops beneath the links. */}
+          <img
+            src="/assets/graphics/decor-yellowflower.png"
+            alt=""
+            aria-hidden="true"
+            className="pointer-events-none absolute top-[65%] right-10 hidden w-24 -translate-y-1/2 -rotate-6 opacity-90 select-none md:block lg:right-16 lg:w-32"
+          />
         </div>
 
         <form
