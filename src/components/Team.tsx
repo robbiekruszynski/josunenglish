@@ -8,12 +8,12 @@ export function Team() {
       <div className="mx-auto max-w-6xl">
         <div className="relative">
           {/* Decorative pair from the client's graphic pattern sheet,
-              flanking the heading (a rainbow and a rain cloud, a
-              natural "for every rainbow there's a little rain" pairing).
-              Both sit on the plain cream background here, so any of the
-              pattern-sheet graphics "pop" fine, no particular color
-              constraint like the About cards below. Hidden below sm so
-              they don't crowd the heading on narrow phones. */}
+              flanking the heading, the sun mascot on the right (same
+              character as the logo and favicon) and a rainbow on the
+              left. Both sit on the plain cream background here, so any
+              of the pattern-sheet graphics "pop" fine, no particular
+              color constraint like the About cards below. Hidden below
+              sm so they don't crowd the heading on narrow phones. */}
           <img
             src="/assets/graphics/decor-rainbow-cool.png"
             alt=""
@@ -21,10 +21,10 @@ export function Team() {
             className="pointer-events-none absolute top-0 left-0 hidden w-20 -rotate-6 select-none sm:block md:w-28 lg:-left-4"
           />
           <img
-            src="/assets/graphics/decor-raincloud.png"
+            src="/assets/graphics/decor-sun.png"
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute top-0 right-0 hidden w-24 rotate-6 select-none sm:block md:w-32 lg:-right-4"
+            className="pointer-events-none absolute top-0 right-0 hidden w-20 rotate-6 select-none sm:block md:w-28 lg:-right-4"
           />
 
           <SectionHeading
