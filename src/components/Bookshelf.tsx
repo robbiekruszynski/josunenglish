@@ -23,7 +23,7 @@ export function Bookshelf() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="px-6 pb-20">
+    <section id="shop" className="px-6 pb-20">
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Take a peek"

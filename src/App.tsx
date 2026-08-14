@@ -7,7 +7,6 @@ import { Gallery } from './components/Gallery';
 import { GoogleReviews } from './components/GoogleReviews';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { Shop } from './components/Shop';
 import { StudentLetter } from './components/StudentLetter';
 import { Team } from './components/Team';
 import { Testimonials } from './components/Testimonials';
@@ -32,7 +31,6 @@ function App() {
         <Gallery />
         <Testimonials />
         <GoogleReviews />
-        <Shop />
         <Bookshelf />
         <WorkWithUs />
         <Contact />

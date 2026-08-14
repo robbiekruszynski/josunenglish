@@ -8,6 +8,14 @@ const PILLARS: {
   color: BrandColor;
   icon: 'heart' | 'compass' | 'people';
   rotate: string;
+  // Decorative graphic from the client's pattern sheet, picked per card
+  // for contrast against that card's background rather than reused
+  // uniformly: a warm red/yellow flower reads as a flat blob on the
+  // orange card but pops on blue, the cool blue/green hand+flower is
+  // the reverse, and the pink/blue/green petals trio was chosen for
+  // green because its pink and blue tones are the two colors in that
+  // set furthest from the card's own green.
+  decor: string;
 }[] = [
   {
     title: 'Teaching Philosophy',
@@ -15,6 +23,7 @@ const PILLARS: {
     color: 'orange',
     icon: 'heart',
     rotate: '-rotate-2',
+    decor: 'decor-blueflower',
   },
   {
     title: 'Our Director',
@@ -22,6 +31,7 @@ const PILLARS: {
     color: 'blue',
     icon: 'compass',
     rotate: 'rotate-1',
+    decor: 'decor-redflower',
   },
   {
     title: 'Our Teachers',
@@ -29,6 +39,7 @@ const PILLARS: {
     color: 'green',
     icon: 'people',
     rotate: '-rotate-1',
+    decor: 'decor-petals',
   },
 ];
 
@@ -51,7 +62,7 @@ export function About() {
         />
 
         <div className="grid gap-8 md:grid-cols-3">
-          {PILLARS.map((pillar, index) => {
+          {PILLARS.map((pillar) => {
             const colors = colorClasses[pillar.color];
 
             return (
@@ -59,12 +70,17 @@ export function About() {
                 key={pillar.title}
                 className={`group relative overflow-hidden rounded-3xl ${colors.bg} p-8 shadow-lg transition duration-300 ${pillar.rotate} hover:rotate-0 hover:-translate-y-2 hover:shadow-2xl`}
               >
-                <span
+                {/* Decorative graphic from the client's pattern sheet in
+                    the top-right corner, replacing the ghost numeral
+                    that used to sit here, picked per-card above so its
+                    colors read clearly against this specific card
+                    background instead of blending in. */}
+                <img
+                  src={`/assets/graphics/${pillar.decor}.png`}
+                  alt=""
                   aria-hidden="true"
-                  className="font-heading absolute -top-6 -right-2 text-[7rem] leading-none font-bold text-white/15 select-none"
-                >
-                  0{index + 1}
-                </span>
+                  className="pointer-events-none absolute -top-3 right-3 w-16 rotate-6 opacity-95 select-none md:w-20"
+                />
 
                 <div className="relative z-10 flex flex-col gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/25 text-white">
