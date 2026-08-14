@@ -85,35 +85,51 @@ export const SUPPLEMENTARY_CLASSES: ClassInfo[] = [
 ];
 
 // Owner note: little avatars instead of real teacher photos for now —
-// full bios to be provided later and swapped in here.
+// full bios to be provided later and swapped in here. Names and roles
+// per the owner's "Our Team" list (Director, Office Manager, Office
+// Administrator, and the three Teaching Team members).
 export const TEAM: TeamMember[] = [
   {
-    name: 'Director',
-    role: 'Founder & Director',
+    name: 'Ms. Joanne',
+    role: 'Director',
     bio: 'Bio coming soon.',
     avatarColor: 'blue',
-    avatarInitial: 'D',
+    avatarInitial: 'J',
   },
   {
-    name: 'Teacher',
-    role: 'Lead Phonics Teacher',
+    name: 'Ms. Bunny',
+    role: 'Office Manager',
+    bio: 'Bio coming soon.',
+    avatarColor: 'indigo',
+    avatarInitial: 'B',
+  },
+  {
+    name: 'Ms. Susin',
+    role: 'Office Administrator',
+    bio: 'Bio coming soon.',
+    avatarColor: 'teal',
+    avatarInitial: 'S',
+  },
+  {
+    name: 'Ms. Natalie',
+    role: 'Teaching Team',
     bio: 'Bio coming soon.',
     avatarColor: 'orange',
-    avatarInitial: 'T',
+    avatarInitial: 'N',
   },
   {
-    name: 'Teacher',
-    role: 'Writing & Grammar Teacher',
+    name: 'Ms. Lilo',
+    role: 'Teaching Team',
     bio: 'Bio coming soon.',
     avatarColor: 'green',
-    avatarInitial: 'T',
+    avatarInitial: 'L',
   },
   {
-    name: 'Teacher',
-    role: 'Chatterbox Teacher',
+    name: 'Ms. Stella',
+    role: 'Teaching Team',
     bio: 'Bio coming soon.',
     avatarColor: 'pink',
-    avatarInitial: 'T',
+    avatarInitial: 'S',
   },
 ];
 

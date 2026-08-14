@@ -36,7 +36,10 @@ export function Team() {
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        {/* 6 team members now (Director, Office Manager, Office
+            Administrator, 3x Teaching Team) — grid-cols-3 keeps them in
+            two clean even rows instead of 4-then-2 orphaning the last row. */}
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
           {TEAM.map((member, index) => (
             <TeamAvatar key={`${member.role}-${index}`} member={member} />
           ))}
