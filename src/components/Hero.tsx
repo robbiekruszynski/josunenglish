@@ -12,10 +12,13 @@ export function Hero() {
           sun. Safe to sit above the header since AnimatedSun is
           pointer-events-none, it can't block clicks on the nav.
           Noticeably smaller and tucked into the actual corner on
-          mobile, at the full desktop size (18.2rem, bled off the
-          section edge) it was large enough to overlap the centered
-          Logo/heading column on narrow screens. */}
-      <AnimatedSun className="hero-sun absolute top-0 right-0 z-[60] h-24 w-24 sm:h-36 sm:w-36 md:-top-12 md:-right-[5.5rem] md:h-[18.2rem] md:w-[18.2rem]" />
+          mobile/tablet; the full bled-off-the-edge size only kicks in
+          at lg (1024px), not md (768px). At md, exactly iPad-portrait
+          width, the heading is already at its largest font size with
+          plenty of its own width, the full 18.2rem sun (with a -5.5rem
+          right offset) landed close enough to overlap it. lg gives
+          enough spare width that this is a non-issue. */}
+      <AnimatedSun className="hero-sun absolute top-0 right-0 z-[60] h-24 w-24 sm:h-36 sm:w-36 lg:-top-12 lg:-right-[5.5rem] lg:h-[18.2rem] lg:w-[18.2rem]" />
 
       <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
 

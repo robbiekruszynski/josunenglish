@@ -74,12 +74,17 @@ export function About() {
                     the top-right corner, replacing the ghost numeral
                     that used to sit here, picked per-card above so its
                     colors read clearly against this specific card
-                    background instead of blending in. */}
+                    background instead of blending in. Positioned with a
+                    positive top offset (not negative) on purpose: the
+                    card itself is overflow-hidden for its rounded
+                    corners, so a negative offset pushed the image above
+                    the card's own top edge and got the top of it sliced
+                    off. */}
                 <img
                   src={`/assets/graphics/${pillar.decor}.png`}
                   alt=""
                   aria-hidden="true"
-                  className="pointer-events-none absolute -top-3 right-3 w-16 rotate-6 opacity-95 select-none md:w-20"
+                  className="pointer-events-none absolute top-4 right-3 w-16 rotate-6 opacity-95 select-none md:w-20"
                 />
 
                 <div className="relative z-10 flex flex-col gap-4">

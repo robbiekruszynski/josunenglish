@@ -29,6 +29,20 @@
   --color-josun-ink: #33302a;
 }
 
+/* Several decorative graphics on the page (Fireworks wrappers, the
+   Hero's background blobs and sun mascot, the Team heading's flanking
+   rainbow/sun) are deliberately positioned with negative insets so they
+   bleed past their own container's edge. That's fine as long as
+   something clips the overall page at the true viewport edge, without
+   this, any one of those elements on a screen narrower than expected
+   could quietly widen the whole document and introduce a horizontal
+   scrollbar, letting one decorative element create ugly sideways
+   scroll site-wide. This is that safety net. */
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-body);
   background-color: var(--color-josun-cream);

@@ -12,9 +12,13 @@ import { GOOGLE_REVIEWS_HREF } from '../data/siteContent';
 export function GoogleReviews() {
   return (
     <section className="px-6 pb-20">
-      <div className="mx-auto max-w-3xl">
-        <div className="flex flex-col items-center gap-5 rounded-[2rem] border-2 border-josun-blue/15 bg-white p-10 text-center shadow-sm md:p-12">
-          <GoogleG className="h-10 w-10" />
+      {/* Sized as a quieter follow-up card, not a second hero moment.
+          It's a one-line nudge with a button sitting right under the
+          Testimonials deck, which has actual quotes and interaction, so
+          it shouldn't claim similar visual weight to that. */}
+      <div className="mx-auto max-w-xl">
+        <div className="flex flex-col items-center gap-4 rounded-[2rem] border-2 border-josun-blue/15 bg-white p-8 text-center shadow-sm md:p-10">
+          <GoogleG className="h-8 w-8" />
 
           <div className="flex gap-1 text-josun-yellow" aria-hidden="true">
             {Array.from({ length: 5 }).map((_, i) => (
@@ -22,11 +26,11 @@ export function GoogleReviews() {
             ))}
           </div>
 
-          <h2 className="font-heading text-2xl font-semibold text-josun-blue md:text-3xl">
+          <h2 className="font-heading text-xl font-semibold text-josun-blue md:text-2xl">
             Loved by families on Google
           </h2>
 
-          <p className="max-w-md text-josun-ink/70">
+          <p className="max-w-md text-sm text-josun-ink/70">
             Read what parents are saying about Josun English, straight from
             our Google reviews.
           </p>
@@ -35,7 +39,7 @@ export function GoogleReviews() {
             href={GOOGLE_REVIEWS_HREF}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-josun-blue px-8 py-3 font-heading text-base font-semibold text-white shadow-sm transition hover:brightness-105"
+            className="rounded-full bg-josun-blue px-6 py-2.5 font-heading text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
           >
             Read Our Google Reviews
           </a>
