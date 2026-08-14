@@ -5,8 +5,13 @@ import { Logo } from './Logo';
 export function Hero() {
   return (
     <section id="top" className="relative overflow-visible px-6 py-20 md:py-28">
-      {/* Josun sun mascot (official favicon mark) in the top-right. */}
-      <AnimatedSun className="hero-sun absolute -top-12 -right-[5.5rem] h-[18.2rem] w-[18.2rem]" />
+      {/* Josun sun mascot (official favicon mark) in the top-right. Its
+          negative top offset pulls it up into the same screen space as
+          the sticky Header (z-50), so it needs a higher z-index or the
+          header's background paints over it and clips the top of the
+          sun. Safe to sit above the header since AnimatedSun is
+          pointer-events-none, it can't block clicks on the nav. */}
+      <AnimatedSun className="hero-sun absolute -top-12 -right-[5.5rem] z-[60] h-[18.2rem] w-[18.2rem]" />
 
       <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
 

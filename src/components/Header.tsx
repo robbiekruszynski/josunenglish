@@ -9,28 +9,34 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-josun-cream/95 backdrop-blur">
       <Ticker />
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
-          <Logo className="h-9" />
-        </a>
-
-        <nav className="hidden items-center gap-7 md:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="font-heading text-sm font-medium text-josun-ink/80 transition hover:text-josun-blue"
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="rounded-full bg-josun-red px-5 py-2 font-heading text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
-          >
-            Book an Assessment
+      <div className="mx-auto flex max-w-6xl items-center justify-between py-4 pr-6 pl-1 md:pl-2">
+        <div className="flex items-center gap-5 md:gap-8">
+          {/* Pushed nearly flush to the left edge on purpose (minimal
+              left padding vs. the right side); sized at 1.5x the
+              original 40px/44px (h-10/h-11) since the round mark read
+              small at its old size next to the rest of the nav. */}
+          <a href="#top" className="shrink-0">
+            <Logo variant="round" className="h-[60px] md:h-[66px]" />
           </a>
-        </nav>
+
+          <nav className="hidden items-center gap-7 md:flex">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="font-heading text-sm font-medium text-josun-ink/80 transition hover:text-josun-blue"
+              >
+                {link.label}
+              </a>
+            ))}
+            <a
+              href="#contact"
+              className="rounded-full bg-josun-red px-5 py-2 font-heading text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
+            >
+              Book an Assessment
+            </a>
+          </nav>
+        </div>
 
         <button
           type="button"
