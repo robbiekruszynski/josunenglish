@@ -222,3 +222,51 @@ html {
     transform: rotate(360deg);
   }
 }
+
+/* Slow pendulum-style rock for the rainbow/sun graphics flanking the
+   Team heading. Base transform (the resting tilt) is set outside the
+   media query so reduced-motion visitors still see the same tilted
+   graphic, just holding still instead of swaying. transform-origin is
+   bottom-center so it reads as swinging from a fixed point rather than
+   spinning in place. Left and right use different durations and an
+   offset delay so they never sync into an obviously identical loop. */
+.rock-left {
+  transform: rotate(-6deg);
+  transform-origin: 50% 100%;
+}
+
+.rock-right {
+  transform: rotate(6deg);
+  transform-origin: 50% 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rock-left {
+    animation: rock-left 4.5s ease-in-out infinite;
+  }
+
+  .rock-right {
+    animation: rock-right 5.2s ease-in-out infinite;
+    animation-delay: -1.6s;
+  }
+}
+
+@keyframes rock-left {
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+}
+
+@keyframes rock-right {
+  0%,
+  100% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}

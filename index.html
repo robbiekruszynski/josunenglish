@@ -19,6 +19,25 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      Hidden, plain-HTML twin of the Contact form in
+      src/components/Contact.tsx. Netlify detects forms by scanning the
+      static HTML produced at build time, the real form only exists in
+      the page after React renders it in the browser, so without this
+      twin (same name, same field names) Netlify would never register
+      the form and every real submission from the React version would
+      silently fail. This one is never shown or interacted with, hidden
+      keeps it out of the accessibility tree too, not just visually.
+    -->
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="text" name="parentName" />
+      <input type="text" name="childAge" />
+      <input type="text" name="contactInfo" />
+      <textarea name="notes"></textarea>
+      <input name="bot-field" />
+    </form>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

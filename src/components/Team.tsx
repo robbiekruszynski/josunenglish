@@ -13,18 +13,20 @@ export function Team() {
               left. Both sit on the plain cream background here, so any
               of the pattern-sheet graphics "pop" fine, no particular
               color constraint like the About cards below. Hidden below
-              sm so they don't crowd the heading on narrow phones. */}
+              sm so they don't crowd the heading on narrow phones. A
+              slow pendulum rock (rock-left/rock-right, see index.css)
+              gives them a little life instead of sitting frozen. */}
           <img
             src="/assets/graphics/decor-rainbow-cool.png"
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute top-0 left-0 hidden w-20 -rotate-6 select-none sm:block md:w-28 lg:-left-4"
+            className="rock-left pointer-events-none absolute top-0 left-0 hidden w-20 select-none sm:block md:w-28 lg:-left-4"
           />
           <img
             src="/assets/graphics/decor-sun.png"
             alt=""
             aria-hidden="true"
-            className="pointer-events-none absolute top-0 right-0 hidden w-20 rotate-6 select-none sm:block md:w-28 lg:-right-4"
+            className="rock-right pointer-events-none absolute top-0 right-0 hidden w-20 select-none sm:block md:w-28 lg:-right-4"
           />
 
           <SectionHeading
