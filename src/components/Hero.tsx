@@ -15,7 +15,7 @@ export function Hero() {
           mobile, at the full desktop size (18.2rem, bled off the
           section edge) it was large enough to overlap the centered
           Logo/heading column on narrow screens. */}
-      <AnimatedSun className="hero-sun absolute top-0 right-0 z-[60] h-16 w-16 sm:h-24 sm:w-24 md:-top-12 md:-right-[5.5rem] md:h-[18.2rem] md:w-[18.2rem]" />
+      <AnimatedSun className="hero-sun absolute top-0 right-0 z-[60] h-24 w-24 sm:h-36 sm:w-36 md:-top-12 md:-right-[5.5rem] md:h-[18.2rem] md:w-[18.2rem]" />
 
       <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
 
