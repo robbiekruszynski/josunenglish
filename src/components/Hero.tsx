@@ -1,15 +1,13 @@
+import { AnimatedSun } from './AnimatedSun';
 import { Fireworks } from './Fireworks';
 import { Logo } from './Logo';
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden px-6 py-20 md:py-28">
-      {/* Soft decorative shapes, echoing the rainbow/sun pattern sheet.
-          A slow, subtle drift (see .hero-blob-a/b in index.css) makes
-          the hero feel like it's breathing instead of sitting static,
-          each shape moves on its own duration so they never sync up
-          into an obviously repeating loop. */}
-      <div className="hero-blob-a pointer-events-none absolute -top-10 -right-16 h-56 w-56 rounded-full bg-josun-yellow/30" />
+    <section id="top" className="relative overflow-visible px-6 py-20 md:py-28">
+      {/* Friendly sun in the top-right — same size/position as the old blob. */}
+      <AnimatedSun className="hero-sun pointer-events-none absolute -top-10 -right-16 h-64 w-64" />
+
       <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 text-center">
@@ -20,7 +18,7 @@ export function Hero() {
               heading only (not the whole hero) so it reads as a little
               celebration around the words rather than page-wide noise. */}
           <div className="absolute -inset-x-16 -inset-y-16 -z-10 md:-inset-x-24 md:-inset-y-20">
-            <Fireworks />
+            <Fireworks intensity={0.45} />
           </div>
 
           <h1 className="font-heading text-4xl leading-tight font-semibold text-josun-blue md:text-6xl">

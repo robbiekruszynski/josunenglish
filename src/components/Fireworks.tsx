@@ -36,6 +36,11 @@ const BURSTS = [
 
 const PARTICLES_PER_BURST = 14;
 
+interface FireworksProps {
+  /** Scales particle count per burst (e.g. 0.7 ≈ 30% fewer particles). */
+  intensity?: number;
+}
+
 /**
  * A confetti-burst welcome that lives behind the hero heading, pure CSS
  * keyframe animation (no canvas, no animation library), matching the
@@ -54,9 +59,17 @@ const PARTICLES_PER_BURST = 14;
  * index.css, so motion-sensitive visitors just see a calm hero with no
  * fireworks rather than a jarring burst forced on them.
  */
-export function Fireworks() {
+export function Fireworks({ intensity = 1 }: FireworksProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const particlesPerBurst = Math.max(
+    4,
+    Math.round(PARTICLES_PER_BURST * intensity),
+  );
+  const activeBursts =
+    intensity >= 1
+      ? BURSTS
+      : BURSTS.slice(0, Math.max(4, Math.round(BURSTS.length * intensity)));
 
   useEffect(() => {
     const el = containerRef.current;
@@ -80,10 +93,10 @@ export function Fireworks() {
           viewport always starts a brand new animation from frame zero
           instead of resuming a paused one mid-burst. */}
       {visible &&
-        BURSTS.map((burst, burstIndex) => (
+        activeBursts.map((burst, burstIndex) => (
           <div key={burstIndex} className="absolute" style={{ top: burst.top, left: burst.left }}>
-            {Array.from({ length: PARTICLES_PER_BURST }).map((_, i) => {
-              const angle = (360 / PARTICLES_PER_BURST) * i;
+            {Array.from({ length: particlesPerBurst }).map((_, i) => {
+              const angle = (360 / particlesPerBurst) * i;
               const radians = (angle * Math.PI) / 180;
               const tx = Math.cos(radians) * burst.radius;
               const ty = Math.sin(radians) * burst.radius;

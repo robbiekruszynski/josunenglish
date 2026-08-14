@@ -124,6 +124,10 @@ html {
     animation: hero-drift-a 16s ease-in-out infinite;
   }
 
+  .hero-sun {
+    animation: hero-sun-drift 16s ease-in-out infinite;
+  }
+
   .hero-blob-b {
     animation: hero-drift-b 20s ease-in-out infinite;
   }
@@ -139,6 +143,18 @@ html {
   }
 }
 
+/* Sun drift without scale — scaling the whole SVG was clipping rays
+   against the hero section edge. */
+@keyframes hero-sun-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(12px, -10px);
+  }
+}
+
 @keyframes hero-drift-b {
   0%,
   100% {
@@ -146,5 +162,23 @@ html {
   }
   50% {
     transform: translate(-16px, 16px) scale(0.94);
+  }
+}
+
+/* Hero sun: staggered glow on each ray while the group orbits via SVG
+   animateTransform (see AnimatedSun.tsx). */
+@media (prefers-reduced-motion: no-preference) {
+  .animated-sun-ray {
+    animation: sun-ray-glow 4s ease-in-out infinite;
+  }
+}
+
+@keyframes sun-ray-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
   }
 }
