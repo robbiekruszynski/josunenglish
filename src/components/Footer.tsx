@@ -16,30 +16,36 @@ export function Footer() {
           </p>
         </div>
 
-        <nav className="flex flex-wrap gap-x-6 gap-y-2">
+        <nav className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:gap-x-2">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-josun-ink/70 hover:text-josun-blue"
+              className="inline-flex min-h-11 items-center px-2 text-sm text-josun-ink/70 hover:text-josun-blue"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex flex-col gap-2 text-sm text-josun-ink/70">
-          <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-josun-blue">
+        <div className="flex flex-col gap-1 text-sm text-josun-ink/70">
+          <a
+            href={`mailto:${CONTACT_INFO.email}`}
+            className="inline-flex min-h-11 items-center hover:text-josun-blue"
+          >
             {CONTACT_INFO.email}
           </a>
-          <a href={CONTACT_INFO.whatsappHref} className="hover:text-josun-blue">
+          <a
+            href={CONTACT_INFO.whatsappHref}
+            className="inline-flex min-h-11 items-center hover:text-josun-blue"
+          >
             WhatsApp: {CONTACT_INFO.whatsapp}
           </a>
           <a
             href={CONTACT_INFO.instagramHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 hover:text-josun-blue"
+            className="inline-flex min-h-11 items-center gap-1.5 hover:text-josun-blue"
           >
             <InstagramIcon />
             {CONTACT_INFO.instagram}

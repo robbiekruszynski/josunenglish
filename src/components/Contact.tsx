@@ -60,22 +60,22 @@ export function Contact() {
             description={ASSESSMENT_FEE_NOTE}
           />
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2">
             <a
               href={`mailto:${CONTACT_INFO.email}`}
-              className="font-heading text-josun-blue hover:underline"
+              className="inline-flex min-h-11 items-center font-heading text-josun-blue hover:underline"
             >
               {CONTACT_INFO.email}
             </a>
             <a
               href={CONTACT_INFO.whatsappHref}
-              className="font-heading text-josun-blue hover:underline"
+              className="inline-flex min-h-11 items-center font-heading text-josun-blue hover:underline"
             >
               WhatsApp: {CONTACT_INFO.whatsapp}
             </a>
             <a
               href={CONTACT_INFO.instagramHref}
-              className="font-heading text-josun-blue hover:underline"
+              className="inline-flex min-h-11 items-center font-heading text-josun-blue hover:underline"
             >
               {CONTACT_INFO.instagram}
             </a>
@@ -123,7 +123,7 @@ export function Contact() {
               required
               type="text"
               name="parentName"
-              className="rounded-xl border border-josun-ink/15 px-4 py-2 outline-none focus:border-josun-blue"
+              className="min-h-11 rounded-xl border border-josun-ink/15 px-4 py-3 outline-none focus:border-josun-blue"
             />
           </label>
 
@@ -133,7 +133,7 @@ export function Contact() {
               required
               type="text"
               name="childAge"
-              className="rounded-xl border border-josun-ink/15 px-4 py-2 outline-none focus:border-josun-blue"
+              className="min-h-11 rounded-xl border border-josun-ink/15 px-4 py-3 outline-none focus:border-josun-blue"
             />
           </label>
 
@@ -143,7 +143,7 @@ export function Contact() {
               required
               type="text"
               name="contactInfo"
-              className="rounded-xl border border-josun-ink/15 px-4 py-2 outline-none focus:border-josun-blue"
+              className="min-h-11 rounded-xl border border-josun-ink/15 px-4 py-3 outline-none focus:border-josun-blue"
             />
           </label>
 
@@ -152,14 +152,14 @@ export function Contact() {
             <textarea
               rows={3}
               name="notes"
-              className="rounded-xl border border-josun-ink/15 px-4 py-2 outline-none focus:border-josun-blue"
+              className="min-h-11 rounded-xl border border-josun-ink/15 px-4 py-3 outline-none focus:border-josun-blue"
             />
           </label>
 
           <button
             type="submit"
             disabled={status === 'submitting'}
-            className="mt-2 rounded-full bg-josun-red px-6 py-3 font-heading font-semibold text-white transition hover:brightness-105 disabled:opacity-60"
+            className="mt-2 inline-flex min-h-11 items-center justify-center rounded-full bg-josun-red px-6 py-3 font-heading font-semibold text-white transition hover:brightness-105 disabled:opacity-60"
           >
             {status === 'submitting' ? 'Sending…' : "Send & we'll get back to you"}
           </button>

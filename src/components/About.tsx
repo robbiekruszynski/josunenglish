@@ -61,7 +61,7 @@ export function About() {
           description="Traditional centers optimize for throughput. We optimize for the kid in front of us."
         />
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
           {PILLARS.map((pillar) => {
             const colors = colorClasses[pillar.color];
 

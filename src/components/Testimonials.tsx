@@ -14,9 +14,9 @@ export function Testimonials() {
     <section id="testimonials" className="px-6 py-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeading eyebrow="Testimonials" title="What our family and students have to say" />
-      </div>
 
-      <TestimonialStack />
+        <TestimonialStack />
+      </div>
     </section>
   );
 }

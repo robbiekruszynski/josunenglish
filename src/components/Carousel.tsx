@@ -178,7 +178,7 @@ export function Carousel({ children, ariaLabel, autoPlayMs = 5000 }: CarouselPro
             ref={(el) => {
               slideRefs.current[index] = el;
             }}
-            className="w-[84%] flex-shrink-0 snap-center sm:w-[70%] lg:w-[45%]"
+            className="w-[84%] flex-shrink-0 snap-center sm:w-[70%] md:w-[55%] lg:w-[45%]"
           >
             {child}
           </div>
@@ -192,7 +192,7 @@ export function Carousel({ children, ariaLabel, autoPlayMs = 5000 }: CarouselPro
             aria-label="Previous photo"
             disabled={activeIndex === 0}
             onClick={() => goTo(indexRef.current - 1)}
-            className="absolute top-1/2 left-1 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-josun-blue shadow-md transition hover:bg-white active:scale-95 disabled:pointer-events-none disabled:opacity-0 md:left-3"
+            className="absolute top-1/2 left-2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-josun-blue shadow-md transition hover:bg-white active:scale-95 disabled:pointer-events-none disabled:opacity-0 md:left-3"
           >
             <ChevronIcon direction="left" />
           </button>
@@ -201,7 +201,7 @@ export function Carousel({ children, ariaLabel, autoPlayMs = 5000 }: CarouselPro
             aria-label="Next photo"
             disabled={activeIndex === count - 1}
             onClick={() => goTo(indexRef.current + 1)}
-            className="absolute top-1/2 right-1 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-josun-blue shadow-md transition hover:bg-white active:scale-95 disabled:pointer-events-none disabled:opacity-0 md:right-3"
+            className="absolute top-1/2 right-2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-josun-blue shadow-md transition hover:bg-white active:scale-95 disabled:pointer-events-none disabled:opacity-0 md:right-3"
           >
             <ChevronIcon direction="right" />
           </button>
@@ -222,7 +222,7 @@ export function Carousel({ children, ariaLabel, autoPlayMs = 5000 }: CarouselPro
               </p>
             </div>
           ) : (
-            <div className="mt-5 flex items-center justify-center gap-2">
+            <div className="mt-5 flex items-center justify-center gap-1">
               {children.map((_, index) => (
                 <button
                   key={index}
@@ -230,12 +230,16 @@ export function Carousel({ children, ariaLabel, autoPlayMs = 5000 }: CarouselPro
                   aria-label={`Go to photo ${index + 1}`}
                   aria-current={index === activeIndex}
                   onClick={() => goTo(index)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    index === activeIndex
-                      ? 'w-6 bg-josun-red'
-                      : 'w-2.5 bg-josun-ink/20 hover:bg-josun-ink/35'
-                  }`}
-                />
+                  className="flex h-11 w-11 items-center justify-center rounded-full"
+                >
+                  <span
+                    className={`block rounded-full transition-all ${
+                      index === activeIndex
+                        ? 'h-2.5 w-6 bg-josun-red'
+                        : 'h-2.5 w-2.5 bg-josun-ink/20 hover:bg-josun-ink/35'
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           )}

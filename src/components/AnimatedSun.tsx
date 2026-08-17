@@ -3,21 +3,20 @@ interface AnimatedSunProps {
 }
 
 /**
- * Josun sun mascot from the official favicon — same mark as the site
- * icon (favicon-48). Uses larger srcSet variants so it stays crisp in
- * the hero. Slow spin + corner drift; both respect prefers-reduced-motion.
+ * Yellow Josun sun (decor-sun.png) for the hero top-right. Position
+ * and size live in index.css (.hero-sun). Spin on the image, drift on
+ * the inner wrapper — separate transforms so they never fight.
  */
-export function AnimatedSun({ className = 'h-24 w-24' }: AnimatedSunProps) {
+export function AnimatedSun({ className }: AnimatedSunProps) {
   return (
-    <div className={`animated-sun pointer-events-none shrink-0 ${className}`}>
-      <img
-        src="/favicon-48.png"
-        srcSet="/favicon-48.png 48w, /favicon-192.png 192w, /favicon-512.png 512w"
-        sizes="(max-width: 768px) 291px, 291px"
-        alt=""
-        aria-hidden="true"
-        className="animated-sun-logo h-full w-full object-contain"
-      />
+    <div className={`hero-sun ${className ?? ''}`.trim()} aria-hidden="true">
+      <div className="hero-sun-drift h-full w-full">
+        <img
+          src="/assets/graphics/decor-sun.png"
+          alt=""
+          className="animated-sun-logo h-full w-full object-contain"
+        />
+      </div>
     </div>
   );
 }

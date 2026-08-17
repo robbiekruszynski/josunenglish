@@ -252,12 +252,12 @@ export function TestimonialStack() {
             type="button"
             aria-label="Previous testimonial"
             onClick={cycleBackward}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-josun-blue shadow-md transition hover:bg-josun-cream active:scale-95"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-josun-blue shadow-md transition hover:bg-josun-cream active:scale-95"
           >
             <ChevronIcon direction="left" />
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             {TESTIMONIALS.map((testimonial, i) => (
               <button
                 key={testimonial.id}
@@ -269,10 +269,16 @@ export function TestimonialStack() {
                 }
                 aria-current={order[0] === i}
                 onClick={() => jumpTo(i)}
-                className={`h-2.5 rounded-full transition-all ${
-                  order[0] === i ? 'w-6 bg-josun-red' : 'w-2.5 bg-josun-ink/20 hover:bg-josun-ink/35'
-                }`}
-              />
+                className="flex h-11 w-11 items-center justify-center rounded-full"
+              >
+                <span
+                  className={`block rounded-full transition-all ${
+                    order[0] === i
+                      ? 'h-2.5 w-6 bg-josun-red'
+                      : 'h-2.5 w-2.5 bg-josun-ink/20 hover:bg-josun-ink/35'
+                  }`}
+                />
+              </button>
             ))}
           </div>
 
@@ -280,7 +286,7 @@ export function TestimonialStack() {
             type="button"
             aria-label="Next testimonial"
             onClick={() => cycleForward(1)}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-josun-blue shadow-md transition hover:bg-josun-cream active:scale-95"
+            className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-josun-blue shadow-md transition hover:bg-josun-cream active:scale-95"
           >
             <ChevronIcon direction="right" />
           </button>

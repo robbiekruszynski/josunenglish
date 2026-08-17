@@ -47,7 +47,7 @@ export function StudentLetterLightbox({
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-3 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-josun-ink/10 font-heading text-lg leading-none text-josun-ink transition hover:bg-josun-ink/20"
+          className="absolute top-2 right-2 z-20 flex h-11 w-11 items-center justify-center rounded-full bg-josun-ink/10 font-heading text-xl leading-none text-josun-ink transition hover:bg-josun-ink/20"
           aria-label="Close"
         >
           ×

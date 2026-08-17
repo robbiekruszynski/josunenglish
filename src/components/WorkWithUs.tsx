@@ -8,7 +8,7 @@ import { WORK_WITH_US_HREF } from '../data/siteContent';
  */
 export function WorkWithUs() {
   return (
-    <section id="work-with-us" className="px-6 py-16">
+    <section id="work-with-us" className="px-6 py-20">
       {/* Sized as a quieter closing note before Contact, not a hero
           moment, same reasoning as the Google Reviews card: a one-line
           nudge with a button shouldn't claim the same visual weight as

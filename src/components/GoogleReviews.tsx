@@ -11,7 +11,7 @@ import { GOOGLE_REVIEWS_HREF } from '../data/siteContent';
  */
 export function GoogleReviews() {
   return (
-    <section className="px-6 pb-20">
+    <section className="px-6 py-20">
       {/* Sized as a quieter follow-up card, not a second hero moment.
           It's a one-line nudge with a button sitting right under the
           Testimonials deck, which has actual quotes and interaction, so

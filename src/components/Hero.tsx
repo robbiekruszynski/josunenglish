@@ -4,57 +4,41 @@ import { Logo } from './Logo';
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-visible px-6 py-20 md:py-28">
-      {/* Josun sun mascot (official favicon mark) in the top-right. Its
-          negative top offset pulls it up into the same screen space as
-          the sticky Header (z-50), so it needs a higher z-index or the
-          header's background paints over it and clips the top of the
-          sun. Safe to sit above the header since AnimatedSun is
-          pointer-events-none, it can't block clicks on the nav.
-          Noticeably smaller and tucked into the actual corner on
-          mobile/tablet; the full bled-off-the-edge size only kicks in
-          at lg (1024px), not md (768px). At md, exactly iPad-portrait
-          width, the heading is already at its largest font size with
-          plenty of its own width, the full 18.2rem sun (with a -5.5rem
-          right offset) landed close enough to overlap it. lg gives
-          enough spare width that this is a non-issue. */}
-      <AnimatedSun className="hero-sun absolute top-0 right-0 z-[60] h-24 w-24 sm:h-36 sm:w-36 lg:-top-12 lg:-right-[5.5rem] lg:h-[18.2rem] lg:w-[18.2rem]" />
+    <section id="top" className="relative overflow-x-clip px-6 py-16 sm:py-20 md:py-28">
+      <AnimatedSun />
 
-      <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
+      <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-48 w-48 rounded-full bg-josun-sky/30 sm:h-64 sm:w-64" />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 text-center">
-        <Logo className="h-16 md:h-20" />
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center gap-8 text-center sm:gap-10">
+        <Logo className="h-14 sm:h-16 md:h-20" />
 
-        <div className="relative">
-          {/* One-time welcome burst, plays on load, sits behind the
-              heading only (not the whole hero) so it reads as a little
-              celebration around the words rather than page-wide noise. */}
-          <div className="absolute -inset-x-16 -inset-y-16 -z-10 md:-inset-x-24 md:-inset-y-20">
+        <div className="relative w-full max-w-xl px-2 pr-[4.5rem] sm:max-w-2xl sm:pr-[5.5rem] md:max-w-3xl md:pr-[7rem] lg:max-w-4xl lg:px-4 lg:pr-4">
+          <div className="absolute -inset-x-12 -inset-y-12 -z-10 sm:-inset-x-16 sm:-inset-y-16 md:-inset-x-24 md:-inset-y-20">
             <Fireworks intensity={0.45} />
           </div>
 
-          <h1 className="font-heading text-4xl leading-tight font-semibold text-josun-blue md:text-6xl">
+          <h1 className="font-heading text-3xl leading-tight font-semibold text-josun-blue sm:text-4xl md:text-5xl lg:text-6xl">
             We'd love to meet
             <br className="hidden md:block" /> your little learner.
           </h1>
         </div>
 
-        <p className="max-w-xl text-lg text-josun-ink/80">
+        <p className="max-w-xl px-2 text-base text-josun-ink/80 sm:text-lg">
           Josun English is a phonics and language learning studio for young
           readers and writers in Hong Kong, small classes, real
           relationships, no cookie-cutter curriculum.
         </p>
 
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 px-2 sm:gap-4">
           <a
             href="#contact"
-            className="rounded-full bg-josun-red px-8 py-3 font-heading text-base font-semibold text-white shadow-sm transition hover:brightness-105"
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-josun-red px-6 py-3 font-heading text-sm font-semibold text-white shadow-sm transition hover:brightness-105 sm:px-8 sm:text-base"
           >
             Book an Assessment
           </a>
           <a
             href="#classes"
-            className="rounded-full border-2 border-josun-blue px-8 py-3 font-heading text-base font-semibold text-josun-blue transition hover:bg-josun-blue hover:text-white"
+            className="inline-flex min-h-11 items-center justify-center rounded-full border-2 border-josun-blue px-6 py-3 font-heading text-sm font-semibold text-josun-blue transition hover:bg-josun-blue hover:text-white sm:px-8 sm:text-base"
           >
             See Our Classes
           </a>
