@@ -5,7 +5,7 @@ import { Logo } from './Logo';
 export function Hero() {
   return (
     <section id="top" className="relative overflow-visible px-6 py-20 md:py-28">
-      {/* Yellow sun from the brand pattern sheet (decor-sun.png). Its
+      {/* Josun sun mascot (official favicon mark) in the top-right. Its
           negative top offset pulls it up into the same screen space as
           the sticky Header (z-50), so it needs a higher z-index or the
           header's background paints over it and clips the top of the
