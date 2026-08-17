@@ -4,15 +4,28 @@ import { Logo } from './Logo';
 
 export function Hero() {
   return (
-    <section id="top" className="relative overflow-x-clip px-6 py-20 md:py-28">
-      <AnimatedSun className="hero-sun" />
+    <section id="top" className="relative overflow-visible px-6 py-20 md:py-28">
+      {/* Yellow sun from the brand pattern sheet (decor-sun.png). Its
+          negative top offset pulls it up into the same screen space as
+          the sticky Header (z-50), so it needs a higher z-index or the
+          header's background paints over it and clips the top of the
+          sun. Safe to sit above the header since AnimatedSun is
+          pointer-events-none, it can't block clicks on the nav.
+          Noticeably smaller and tucked into the actual corner on
+          mobile/tablet; the full bled-off-the-edge size only kicks in
+          at lg (1024px), not md (768px). At md, exactly iPad-portrait
+          width, the heading is already at its largest font size with
+          plenty of its own width, the full 18.2rem sun (with a -5.5rem
+          right offset) landed close enough to overlap it. lg gives
+          enough spare width that this is a non-issue. */}
+      <AnimatedSun className="hero-sun absolute top-0 right-0 z-[60] h-24 w-24 sm:h-36 sm:w-36 lg:-top-12 lg:-right-[5.5rem] lg:h-[18.2rem] lg:w-[18.2rem]" />
 
       <div className="hero-blob-b pointer-events-none absolute -bottom-16 -left-10 h-64 w-64 rounded-full bg-josun-sky/30" />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 text-center">
         <Logo className="h-16 md:h-20" />
 
-        <div className="relative w-full max-w-2xl px-1 pr-16 sm:pr-24 md:max-w-3xl md:pr-32 lg:max-w-4xl lg:px-0 lg:pr-0">
+        <div className="relative">
           {/* One-time welcome burst, plays on load, sits behind the
               heading only (not the whole hero) so it reads as a little
               celebration around the words rather than page-wide noise. */}

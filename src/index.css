@@ -160,70 +160,17 @@ html {
    shape so they never sync into an obviously repeating loop, and no
    fixed end state to worry about since neither has a "forwards" case,
    they just loop. */
-/* Hero sun — fluid size and corner position from phone to desktop.
-   Sits below the sticky header on small screens (z-40) so the nav
-   stays tappable; peeks above the header on lg+ only. Drift amplitude
-   scales down on narrow viewports so it doesn't slide off-screen. */
-.hero-sun {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 40;
-  width: clamp(4.5rem, 15vw, 18.2rem);
-  height: clamp(4.5rem, 15vw, 18.2rem);
-  transform: translate(18%, -10%);
-  pointer-events: none;
-}
-
-@media (min-width: 640px) {
-  .hero-sun {
-    transform: translate(10%, -6%);
-  }
-}
-
-@media (min-width: 768px) {
-  .hero-sun {
-    width: clamp(7rem, 12vw, 10rem);
-    height: clamp(7rem, 12vw, 10rem);
-    transform: translate(4%, -4%);
-  }
-}
-
-@media (min-width: 1024px) {
-  .hero-sun {
-    width: clamp(10rem, 14vw, 14rem);
-    height: clamp(10rem, 14vw, 14rem);
-    top: -1.5rem;
-    right: -2rem;
-    z-index: 60;
-    transform: none;
-  }
-}
-
-@media (min-width: 1280px) {
-  .hero-sun {
-    width: 18.2rem;
-    height: 18.2rem;
-    top: -3rem;
-    right: -5.5rem;
-  }
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .hero-blob-a {
     animation: hero-drift-a 16s ease-in-out infinite;
   }
 
-  .hero-blob-b {
-    animation: hero-drift-b 20s ease-in-out infinite;
-  }
-}
-
-/* Gentle drift only on large screens — on phone/tablet the sun already
-   uses a %-based corner offset; adding drift there fights the layout. */
-@media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
   .hero-sun {
     animation: hero-sun-drift 16s ease-in-out infinite;
+  }
+
+  .hero-blob-b {
+    animation: hero-drift-b 20s ease-in-out infinite;
   }
 }
 
@@ -245,7 +192,7 @@ html {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(10px, -8px);
+    transform: translate(12px, -10px);
   }
 }
 
