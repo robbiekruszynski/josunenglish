@@ -19,7 +19,7 @@ import { WorkWithUs } from './components/WorkWithUs';
  */
 function App() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-clip">
       <Header />
       <main>
         <Hero />
