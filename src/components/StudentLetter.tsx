@@ -1,44 +1,67 @@
-import { Fireworks } from './Fireworks';
+import { useEffect } from 'react';
 
-/**
- * A real handwritten thank-you note from a student, placed right after
- * Team as "show, don't tell" proof of the close teacher relationships
- * that section describes.
- *
- * Reuses the same Fireworks component from the Hero (rather than a
- * one-off effect) so the card doesn't sit alone on an otherwise plain
- * stretch of the page, it also means the confetti only plays while this
- * bit of the page is actually in view (see the IntersectionObserver in
- * Fireworks.tsx), same as the Hero.
- *
- * Two things were redacted out of the original photo before it went
- * anywhere near this site: the student's personal phone number (written
- * inside the letter) and her surname in the signature, first name only
- * is shown. A minor's phone number and full name don't belong on a
- * public marketing site regardless of how sweet the letter is, so those
- * are blacked out in the image itself rather than just cropped or
- * hidden with CSS.
- */
-export function StudentLetter() {
+interface StudentLetterLightboxProps {
+  open: boolean;
+  onClose: () => void;
+  caption: string;
+  imageAlt: string;
+}
+
+/** Full-size student letter overlay — opened from the testimonial stack. */
+export function StudentLetterLightbox({
+  open,
+  onClose,
+  caption,
+  imageAlt,
+}: StudentLetterLightboxProps) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [open, onClose]);
+
+  if (!open) return null;
+
   return (
-    <section className="px-6 py-20">
-      <div className="relative mx-auto max-w-xl">
-        <div className="pointer-events-none absolute -inset-x-10 -inset-y-14 -z-10 sm:-inset-x-16 sm:-inset-y-20">
-          <Fireworks />
-        </div>
+    <div
+      className="fixed inset-0 z-100 flex items-center justify-center p-4 sm:p-8"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Student thank-you letter"
+    >
+      <button
+        type="button"
+        className="absolute inset-0 bg-josun-ink/60 backdrop-blur-sm"
+        aria-label="Close letter"
+        onClick={onClose}
+      />
 
-        <figure className="rotate-1 rounded-2xl bg-white p-3 shadow-xl transition hover:rotate-0">
+      <div className="relative z-10 flex max-h-[92vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-3 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-josun-ink/10 font-heading text-lg leading-none text-josun-ink transition hover:bg-josun-ink/20"
+          aria-label="Close"
+        >
+          ×
+        </button>
+
+        <div className="overflow-y-auto p-4 sm:p-6">
           <img
             src="/assets/testimonials/student-letter.jpg"
-            alt="A handwritten thank-you letter from a Josun English student to her teacher, sharing how much the support and encouragement meant to her."
+            alt={imageAlt}
             className="w-full rounded-lg"
           />
-          <figcaption className="px-2 pt-3 pb-1 text-center text-sm text-josun-ink/60">
-            A note we received from one of our students, name redacted for
-            privacy.
-          </figcaption>
-        </figure>
+          <p className="pt-4 text-center text-sm text-josun-ink/60">{caption}</p>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

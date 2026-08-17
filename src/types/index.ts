@@ -24,9 +24,13 @@ export interface TeamMember {
 }
 
 export interface Testimonial {
+  id: string;
   quote: string;
   author: string;
   detail: string;
+  /** When set, this card shows a letter preview and opens a lightbox on tap. */
+  letterImage?: string;
+  letterAlt?: string;
 }
 
 export interface ShopCategory {

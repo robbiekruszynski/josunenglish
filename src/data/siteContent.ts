@@ -136,21 +136,34 @@ export const TEAM: TeamMember[] = [
 // Placeholder testimonials — swap for real family quotes when available.
 export const TESTIMONIALS: Testimonial[] = [
   {
+    id: 'asks-to-go',
     quote:
       'Our daughter asks to go to class now. That alone tells us this is the right place.',
     author: 'A Josun parent',
     detail: 'Pre-Phonics family',
   },
   {
+    id: 'teachers-know-son',
     quote:
       "The teachers actually know our son, not just his level. It doesn't feel like a factory.",
     author: 'A Josun parent',
     detail: 'Phonics family',
   },
   {
+    id: 'small-classes',
     quote: 'Small classes made a real difference for a kid who used to hate reading.',
     author: 'A Josun parent',
     detail: 'Reading Comprehension family',
+  },
+  {
+    id: 'student-letter',
+    quote:
+      'A note we received from one of our students, name redacted for privacy.',
+    author: 'A Josun student',
+    detail: 'Handwritten thank-you note',
+    letterImage: '/assets/testimonials/student-letter.jpg',
+    letterAlt:
+      'A handwritten thank-you letter from a Josun English student to her teacher, sharing how much the support and encouragement meant to her.',
   },
 ];
 
