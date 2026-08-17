@@ -158,7 +158,7 @@ export const TESTIMONIALS: Testimonial[] = [
   {
     id: 'student-letter',
     quote:
-      'A note we received from one of our students, name redacted for privacy.',
+      'A note we received from one of our students.',
     author: 'A Josun student',
     detail: 'Handwritten thank-you note',
     letterImage: '/assets/testimonials/student-letter.jpg',
