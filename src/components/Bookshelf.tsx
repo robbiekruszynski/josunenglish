@@ -87,7 +87,7 @@ function BookCarousel({ onClose }: { onClose: () => void }) {
       <button
         type="button"
         onClick={onClose}
-        className="font-heading mb-6 flex items-center gap-1.5 text-sm font-semibold text-josun-blue hover:underline"
+        className="font-heading mb-6 inline-flex min-h-11 items-center gap-1.5 px-2 text-sm font-semibold text-josun-blue hover:underline"
       >
         ← Back to the shelf
       </button>

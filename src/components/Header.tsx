@@ -46,7 +46,7 @@ export function Header() {
             ))}
             <a
               href="#contact"
-              className="rounded-full bg-josun-red px-4 py-2.5 font-heading text-xs font-semibold whitespace-nowrap text-white shadow-sm transition hover:brightness-105 lg:px-5 lg:text-sm"
+              className="inline-flex min-h-11 items-center justify-center rounded-full bg-josun-red px-4 py-2.5 font-heading text-xs font-semibold whitespace-nowrap text-white shadow-sm transition hover:brightness-105 lg:px-5 lg:text-sm"
             >
               Book an Assessment
             </a>

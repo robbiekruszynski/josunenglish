@@ -164,8 +164,8 @@ html {
   top: 0;
   right: 0;
   z-index: 1;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 6.75rem;
+  height: 6.75rem;
   transform: translate(22%, -6%);
   pointer-events: none;
 }
@@ -208,6 +208,38 @@ html {
     width: 16rem;
     height: 16rem;
     transform: translate(35%, 0);
+  }
+}
+
+/* Short viewports (landscape phones, small laptop windows): tighten the
+   hero stack so logo + heading + CTAs fit without excessive scrolling. */
+@media (max-height: 500px) {
+  .hero-section {
+    padding-block: 2rem;
+  }
+
+  .hero-section .hero-inner {
+    gap: 1rem;
+  }
+
+  .hero-section .hero-wordmark {
+    height: 2.25rem;
+  }
+
+  .hero-section .hero-title {
+    font-size: 1.625rem;
+    line-height: 1.25;
+  }
+
+  .hero-section .hero-subtitle {
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  .hero-section .hero-sun {
+    width: 4.875rem;
+    height: 4.875rem;
+    transform: translate(18%, -8%);
   }
 }
 

@@ -39,7 +39,7 @@ export function GoogleReviews() {
             href={GOOGLE_REVIEWS_HREF}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-josun-blue px-6 py-2.5 font-heading text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
+            className="inline-flex min-h-11 items-center justify-center rounded-full bg-josun-blue px-6 py-3 font-heading text-sm font-semibold text-white shadow-sm transition hover:brightness-105"
           >
             Read Our Google Reviews
           </a>

@@ -26,7 +26,7 @@ export function WorkWithUs() {
         </p>
         <a
           href={WORK_WITH_US_HREF}
-          className="rounded-full bg-white px-6 py-2.5 font-heading text-sm font-semibold text-josun-indigo transition hover:brightness-95"
+          className="inline-flex min-h-11 items-center justify-center rounded-full bg-white px-6 py-3 font-heading text-sm font-semibold text-josun-indigo transition hover:brightness-95"
         >
           See Open Roles
         </a>
