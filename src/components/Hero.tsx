@@ -1,3 +1,4 @@
+import { HERO_SUBTITLE } from '../data/siteContent';
 import { AnimatedSun } from './AnimatedSun';
 import { Fireworks } from './Fireworks';
 import { Logo } from './Logo';
@@ -24,9 +25,7 @@ export function Hero() {
         </div>
 
         <p className="hero-subtitle max-w-xl px-2 text-base text-josun-ink/80 sm:text-lg">
-          Josun English is a phonics and language learning studio for young
-          readers and writers in Hong Kong, small classes, real
-          relationships, no cookie-cutter curriculum.
+          {HERO_SUBTITLE}
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-3 px-2 sm:gap-4">

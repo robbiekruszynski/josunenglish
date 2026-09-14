@@ -20,8 +20,8 @@ export function Classes() {
 
         <SectionHeading
           eyebrow="Classes"
-          title="Supplementary classes"
-          description="For students who want to go further we offer, speaking, comprehension, and creative writing."
+          title="Enrichment classes"
+          description="For students who want to go further — speaking, comprehension, and creative writing."
         />
 
         <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">

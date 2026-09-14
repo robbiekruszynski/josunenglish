@@ -19,7 +19,7 @@ const PILLARS: {
 }[] = [
   {
     title: 'Teaching Philosophy',
-    body: 'We teach kids, not curricula. Every class is built around how a specific student learns, not a one-size lesson plan run on repeat.',
+    body: 'We build confident learners and critical thinkers. Our classes are designed around how students learn — not around lesson plans that run on repeat. Each class is intentionally shaped to support comprehension, curiosity, and meaningful progress. By focusing on the learner first, we create an environment where students can strengthen core skills, build independence, and develop the confidence to engage deeply with what they are learning.',
     color: 'orange',
     icon: 'heart',
     rotate: '-rotate-2',
@@ -27,7 +27,7 @@ const PILLARS: {
   },
   {
     title: 'Our Director',
-    body: 'Josun English is led hands-on, not run from a distance. Our director is directly involved in how classes are shaped and taught.',
+    body: 'As a teacher herself, our director brings firsthand classroom experience and a deep understanding of the needs of both educators and students. This unique perspective informs the development of effective, current materials designed to support the way today\'s classrooms are taught and experienced.',
     color: 'blue',
     icon: 'compass',
     rotate: 'rotate-1',
@@ -35,7 +35,7 @@ const PILLARS: {
   },
   {
     title: 'Our Teachers',
-    body: 'A small, closely involved teaching team who actually know each student, not a rotating roster.',
+    body: 'A small team approach means your child is supported by more than one teacher — they are known, guided, and encouraged by a committed group of caring educators. This team-based model ensures that every student benefits from meaningful exposure to quality teachers, different teaching strengths, and a shared commitment to their growth. It also allows us to better understand each child\'s needs and support their progress with care, consistency, and intention.',
     color: 'green',
     icon: 'people',
     rotate: '-rotate-1',

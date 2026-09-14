@@ -18,7 +18,7 @@ import { SectionHeading } from './SectionHeading';
  *    reload.
  *
  * Where submissions land: Netlify's dashboard, under this site's Forms
- * tab. Email notifications (e.g. to hello@josunenglish.com) are
+ * tab. Email notifications (e.g. to josunenglish@gmail.com) are
  * configured there, not in code, see the notification setup steps
  * wherever this change gets handed off.
  */

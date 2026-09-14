@@ -36,26 +36,29 @@ export const TICKER_ITEMS: TickerItem[] = [
   { label: 'Book an Assessment', href: '#contact' },
 ];
 
+export const HERO_SUBTITLE =
+  'Josun English is a phonics and language learning studio for young readers and writers in Hong Kong, from age 2.5 to 12 years. Small classes, real relationships, and an effective tailored curriculum.';
+
 export const CORE_CLASSES: ClassInfo[] = [
   {
     name: 'Pre-Phonics',
     tagline: 'Our youngest learners',
     description:
-      'Playful, sound-first foundations for little ones just getting started with letters and language.',
+      'Playful, sound-first foundations for little ones just getting started. Story- and song-based learning. Our littlest learners get a head start here on their reading journey.',
     color: 'orange',
   },
   {
     name: 'Phonics',
     tagline: 'Core reading skills',
     description:
-      'Structured, joyful phonics instruction that builds real reading confidence, not just memorization.',
+      'Our phonics instruction is structured, consistent, and fun. Students learn the tools and foundational skills they will need to navigate reading and spelling with confidence and independence.',
     color: 'blue',
   },
   {
     name: 'Writing & Grammar',
     tagline: 'Putting it on the page',
     description:
-      'Turning spoken language into confident writing, with grammar taught in context, not worksheets alone.',
+      'Following phonics, students begin applying grammar skills through regular writing practice and creative expression. Rather than relying only on worksheets or repetition, our approach helps students understand why grammar matters and how to use it with purpose. Through practical instruction and meaningful writing experiences, students build the tools they need to communicate clearly, confidently, and creatively.',
     color: 'green',
   },
 ];
@@ -65,21 +68,21 @@ export const SUPPLEMENTARY_CLASSES: ClassInfo[] = [
     name: 'Chatterbox',
     tagline: 'Speaking & confidence',
     description:
-      'Conversation-driven sessions built around speaking up, being heard, and having fun doing it.',
+      'Theme-based, conversational classes designed to help students prepare to participate in real-life scenarios and everyday situations. Chatterbox is ideal for interview prep, shy speakers who need encouragement, as well as confident speakers who may benefit from slowing down and strengthening grammar.',
     color: 'pink',
   },
   {
     name: 'Reading Comprehension',
     tagline: 'Beyond the words',
     description:
-      'Helping kids understand and connect with what they read, not just decode it.',
+      'Our Reading Comprehension classes help students understand, connect with, and think critically about what they read. Students learn to locate key information, make inferences, summarize ideas, and build confidence as thoughtful, independent readers. Through guided practice and discussion, students strengthen the skills needed to read with purpose and engage more deeply with texts.',
     color: 'teal',
   },
   {
     name: 'Creative Writing',
     tagline: 'Stories of their own',
     description:
-      'A space for imagination first, technique second, where every student is a real author.',
+      'Creative Writing is where imagination and expression meet technique. Students learn the tools to express themselves clearly, creatively, and confidently through writing. By developing both creativity and critical thinking, students strengthen their ability to share ideas, tell stories, and communicate with confidence in the world around them.',
     color: 'indigo',
   },
 ];
@@ -340,13 +343,13 @@ export const SHOP_CATEGORIES: ShopCategory[] = [
 ];
 
 export const ASSESSMENT_FEE_NOTE =
-  'Assessments are $350 HKD, and the full amount is credited toward your first invoice once you sign up.';
+  "Let's get started! Our assessment is a fun mini-lesson where your child can explore our engaging environment and show us what they know. Plus, when you enroll, your assessment fee is 100% credited toward your first invoice.";
 
 // Owner note: link this out to the actual job description once it exists.
 export const WORK_WITH_US_HREF = '#';
 
 export const CONTACT_INFO = {
-  email: 'hello@josunenglish.com',
+  email: 'josunenglish@gmail.com',
   whatsapp: '6114-8185',
   whatsappHref: 'https://wa.me/85261148185',
   instagram: '@josunenglish.hk',
