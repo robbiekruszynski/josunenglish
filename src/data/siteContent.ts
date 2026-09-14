@@ -348,8 +348,11 @@ export const ASSESSMENT_FEE_NOTE =
 // Owner note: link this out to the actual job description once it exists.
 export const WORK_WITH_US_HREF = '#';
 
+/** Inbox that receives contact-form submissions (FormSubmit + site display). */
+export const FORM_RECIPIENT_EMAIL = 'josunenglish@gmail.com';
+
 export const CONTACT_INFO = {
-  email: 'josunenglish@gmail.com',
+  email: FORM_RECIPIENT_EMAIL,
   whatsapp: '6114-8185',
   whatsappHref: 'https://wa.me/85261148185',
   instagram: '@josunenglish.hk',

@@ -1,26 +1,18 @@
 import { useState, type FormEvent } from 'react';
-import { ASSESSMENT_FEE_NOTE, CONTACT_INFO } from '../data/siteContent';
+import { ASSESSMENT_FEE_NOTE, CONTACT_INFO, FORM_RECIPIENT_EMAIL } from '../data/siteContent';
 import { SectionHeading } from './SectionHeading';
 
 /**
- * Wired up to Netlify Forms, no custom backend needed since the site
- * already deploys there. Two things make that work:
+ * Submissions are emailed to FORM_RECIPIENT_EMAIL via FormSubmit (recipient
+ * is set in code, not the Netlify dashboard). Netlify Forms is kept as a
+ * best-effort backup so entries also appear under the site's Forms tab.
  *
- * 1. A hidden, plain-HTML twin of this form lives in index.html. Netlify
- *    detects forms by scanning the static HTML at deploy time, and this
- *    form only exists in the DOM after React renders it client-side, so
- *    without that static twin Netlify would never know this form
- *    exists and submissions would silently 404.
- * 2. On submit, instead of a real page navigation, this POSTs the form
- *    data to "/" as `application/x-www-form-urlencoded`, matching what
- *    a native HTML form submission to a Netlify-detected form looks
- *    like, then swaps in the confirmation message without a full page
- *    reload.
+ * FormSubmit requires a one-time activation: on the first real submission,
+ * josunenglish@gmail.com gets a confirmation link that must be clicked
+ * before emails start arriving.
  *
- * Where submissions land: Netlify's dashboard, under this site's Forms
- * tab. Email notifications (e.g. to josunenglish@gmail.com) are
- * configured there, not in code, see the notification setup steps
- * wherever this change gets handed off.
+ * The hidden static form twin in index.html is still required for Netlify
+ * to register the backup form at deploy time.
  */
 export function Contact() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'submitted' | 'error'>('idle');
@@ -30,17 +22,47 @@ export function Contact() {
     setStatus('submitting');
 
     const form = event.currentTarget;
-    const body = new URLSearchParams();
-    new FormData(form).forEach((value, key) => body.append(key, value.toString()));
+    const data = new FormData(form);
+
+    const parentName = data.get('parentName')?.toString() ?? '';
+    const childAge = data.get('childAge')?.toString() ?? '';
+    const contactInfo = data.get('contactInfo')?.toString() ?? '';
+    const notes = data.get('notes')?.toString() ?? '';
 
     try {
-      const response = await fetch('/', {
+      const emailResponse = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(FORM_RECIPIENT_EMAIL)}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            'Parent name': parentName,
+            "Child's age": childAge,
+            'Email or WhatsApp': contactInfo,
+            Notes: notes || '(none)',
+            _subject: 'New assessment booking — Josun English',
+            _template: 'table',
+            _captcha: 'false',
+          }),
+        },
+      );
+
+      if (!emailResponse.ok) throw new Error(`Email delivery failed: ${emailResponse.status}`);
+
+      const result = (await emailResponse.json()) as { success?: boolean };
+      if (!result.success) throw new Error('Email delivery rejected');
+
+      // Best-effort Netlify backup — don't block success if this fails.
+      const netlifyBody = new URLSearchParams();
+      data.forEach((value, key) => netlifyBody.append(key, value.toString()));
+      void fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
-      });
-
-      if (!response.ok) throw new Error(`Form submission failed: ${response.status}`);
+        body: netlifyBody.toString(),
+      }).catch(() => {});
 
       setStatus('submitted');
       form.reset();
@@ -81,10 +103,6 @@ export function Contact() {
             </a>
           </div>
 
-          {/* Decorative pattern-sheet flower filling the dead space
-              between the contact links and the form, right side of this
-              column, hidden below md since there isn't room to spare
-              once the form drops beneath the links. */}
           <img
             src="/assets/graphics/decor-yellowflower.png"
             alt=""
@@ -101,15 +119,8 @@ export function Contact() {
           onSubmit={handleSubmit}
           className="flex flex-col gap-4 rounded-3xl border border-josun-ink/10 bg-white p-8 shadow-sm"
         >
-          {/* Required so Netlify can match this submission back to the
-              hidden static form of the same name in index.html. */}
           <input type="hidden" name="form-name" value="contact" />
 
-          {/* Honeypot: real visitors never see or fill this in (it's
-              visually hidden, not just off-screen, so screen readers
-              skip it too via aria-hidden), spam bots that blindly fill
-              every field trip it, and Netlify silently discards the
-              submission. */}
           <p className="hidden">
             <label>
               Leave this field blank
