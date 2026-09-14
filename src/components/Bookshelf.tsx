@@ -27,7 +27,7 @@ export function Bookshelf() {
       <div className="mx-auto max-w-4xl">
         <SectionHeading
           eyebrow="Take a peek"
-          title="Pull a book off the shelf"
+          title="The Josun Tuckshop"
           description="A preview of what's coming to the shop, tap the shelf to flip through."
         />
 
